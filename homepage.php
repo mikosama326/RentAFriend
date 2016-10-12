@@ -3,6 +3,7 @@
 session_start();
 #error_reporting(E_ALL);
 #display_errors("stdout");
+include(config.php);
 ?>
 
 <html>
@@ -16,25 +17,26 @@ session_start();
 
 <?php
 // Set session variables
-$_SESSION["userid"] = "srija";
+include('config.php');
+session_start();
 echo "Session variables are set.";
 ?>
 
 
 <p style="font-size:50px; ">----------------- Rent-a-friend!!!--------------------------</p>
 <p style="font-size:20px; text-indent:80%"> <a href="home.php">Home</a> | <a href="logout.php">Sign out</a> | <a href="messages.php">Messages</a> |</p>
-
+<a href="find.php">Find friends!</a>
 <br/><br/><br/>
 
-<p style="font-size:30px">User: 
+<p style="font-size:30px">User:
 
 
 <?php
 
-$conn=mysqli_connect('localhost', 'root', 'onegai123', 'rentafriend');
+$conn=mysqli_connect($server, $username,$password, $dbname);
 
-$username=$_SESSION["userid"];
-$q="select * from user_details where userid='$username'; ";
+$userid=$_SESSION["userid"];
+$q="select * from $userdetails where userid='$userid'; ";
 if($result=mysqli_query($conn, $q))
 {
 	//fetch one row
@@ -43,7 +45,7 @@ if($result=mysqli_query($conn, $q))
 		printf("%s %s <br/>", $row[1], $row[2]);
 		printf("Age: %s<br/>", $row[3]);
 		printf("City: %s", $row[4]);
-		
+
 	}
 	//mysqli_free_result($result);
 }
@@ -58,7 +60,7 @@ if($result=mysqli_query($conn, $q))
 <p style="font-size:30px">
 <?php
 printf("Interests:<br/>");
-$q="select * from interests where userid='jess'; ";
+$q="select * from $interests where userid='$userid'; ";
 if($result=mysqli_query($conn, $q))
 {
 	while($row=mysqli_fetch_row($result))

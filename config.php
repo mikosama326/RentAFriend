@@ -2,5 +2,11 @@
 $dbname = "rentafriend";
 $username = "root";
 $server ="localhost";
-$password = "oengai123";
+$password = "onegai123";
+
+#Table names
+$accounts = "Accounts";
+$userdetails = "UserDetails";
+$messages = "Messages";
+$interests = "Interests";
 ?>
