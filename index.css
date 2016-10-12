@@ -1,0 +1,7 @@
+body {background-color: #feffc9;}
+.head {position:relative;top:5px;width:100%;text-align:center;font-size:25px;border-bottom: 3px solid black;}
+.head h1 {font-size: 30pt;}
+.head h2 {font-size: 25pt;}
+.logo {background-image: url('logo.png');}
+.main {position:relative;width:80%;text-align:left;font-size:20pt;border: 2px solid black;height:800px; padding-top:10px;}
+.nav {position:relative;width:80%;text-align:center;font-size:20pt;border: 2px solid black;}
