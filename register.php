@@ -31,13 +31,49 @@
 
     </script>
 
+
+<?php
+	$msg = "";
+	if(isset($_POST["userid"]))
+	{
+		$username = $_POST['userid'];
+		$conn=mysqli_connect('localhost', 'root', 'onegai123', 'rentafriend');
+
+		$q="select * from Accounts where userid='$username'; ";
+		if($result=mysqli_query($conn, $q))
+		{
+			//fetch one row
+			//$msg = $msg.$result[0];
+			while($row=mysqli_fetch_row($result))
+			{
+				if(!$row) {
+					$msg = "Invalid Userid<br/>";
+				}
+				if($row[1]==$_POST['password'])
+				{
+					session_start();
+					$_SESSION['userid'] = $_POST['userid'];
+					header("Location: homepage.php",0);
+				}
+				else {
+					$msg = "Invalid password.<br/>";
+				}
+	}
+}
+else {
+	$msg = "Invalid Userid<br/>";
+}
+
+}
+
+?>
 	</head>
 	<body>
 	<h1>Rent A Friend</h1>
 	<h2>Coming soon to a browser near you!</h2>
 
 <h3>Sign in!</h3>
-<form onsubmit="verify()">
+<form onsubmit="register.php" method="post">
 <table>
   <tr>
     <td>Userid: </td>
@@ -54,8 +90,12 @@
 </table>
 </form>
 
+<?php
+	echo $msg;
+?>
+
 <h3>Sign up!</h3>
-	<form onsubmit="verify()">
+	<form onsubmit="verify()" method="post">
 <table>
     <tr>
       <td>Userid:</td>
