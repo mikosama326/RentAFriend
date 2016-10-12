@@ -9,12 +9,12 @@ include(config.php);
 <html>
 
 <head>
-
+<link rel="stylesheet" href="index.css" />
 
 </head>
 
 <body>
-
+<center>
 <?php
 // Set session variables
 include('config.php');
@@ -22,12 +22,23 @@ session_start();
 echo "Session variables are set.";
 ?>
 
+<div class="head">
+	<table>
+		<tr>
+			<td>
+	<img src="logo.png" width="192px" height="144px"/>
+</td><td>
+	<h1>Rent A Friend</h1>
+<h2>Coming soon to a browser near you!</h2>
+</td></tr></table>
+</div>
 
-<p style="font-size:50px; ">----------------- Rent-a-friend!!!--------------------------</p>
-<p style="font-size:20px; text-indent:10%"> <a href="home.php">Home</a> | <a href="logout.php">Sign out</a> | <a href="messages.php">Messages</a> |</p>
-<a href="find.php">Find friends!</a> <a href="addint.php"> Add an Interest</a> 
+<div class="nav">
+<p style="font-size:20px;text-align:center;"> <a href="homepage.php">Home</a> | <a href="logout.php">Sign out</a> | <a href="messages.php">Messages</a> |
+<a href="find.php">Find friends!</a> <a href="addint.php"> Add an Interest</a></p>
 <br/><br/><br/>
-
+</div>
+<div class="main">
 <p style="font-size:30px">User:
 
 
@@ -70,7 +81,8 @@ if($result=mysqli_query($conn, $q))
 }
 ?>
 </p>
-
+</div>
+</center>
 </body>
 
 

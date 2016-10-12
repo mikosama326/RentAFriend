@@ -31,8 +31,21 @@
     }
   }
   ?>
+  <link rel="stylesheet" href="index.css" />
 </head>
 <body>
+  <center>
+  <div class="head">
+		<table>
+			<tr>
+				<td>
+		<img src="logo.png" width="192px" height="144px"/>
+	</td><td>
+		<h1>Rent A Friend</h1>
+	<h2>Coming soon to a browser near you!</h2>
+</td></tr></table>
+	</div>
+  <div class="main">
 <h3>Sign up!</h3>
 	<form onsubmit="reg4real.php" method="post">
 <table>
@@ -82,6 +95,7 @@
 </tr>
 </table>
 </form>
-
+</div>
+</center>
 </body>
 </html>

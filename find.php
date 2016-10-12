@@ -1,19 +1,30 @@
 
 <?php
 session_start();
-#error_reporting(E_ALL);
-#display_errors("stdout");
 include(config.php);
 ?>
 
 <html>
 
 <head>
-
+<link rel="stylesheet" href="index.css" />
 
 </head>
 
 <body>
+
+<center>
+
+  <div class="head">
+  	<table>
+  		<tr>
+  			<td>
+  	<img src="logo.png" width="192px" height="144px"/>
+  </td><td>
+  	<h1>Rent A Friend</h1>
+  <h2>Coming soon to a browser near you!</h2>
+  </td></tr></table>
+  </div>
 
 <?php
 // Set session variables
@@ -22,12 +33,12 @@ session_start();
 echo "Session variables are set.";
 ?>
 
+<div class="nav">
+<p style="font-size:20px;text-align:center;"> <a href="home.php">Home</a> | <a href="logout.php">Sign out</a> | <a href="messages.php">Messages</a> |
+<a href="find.php">Find friends!</a></p>
+</div>
 
-<p style="font-size:50px; ">----------------- Rent-a-friend!!!--------------------------</p>
-<p style="font-size:20px; text-indent:60%"> <a href="home.php">Home</a> | <a href="logout.php">Sign out</a> | <a href="messages.php">Messages</a> |</p>
-<a href="find.php">Find friends!</a>
-<br/><br/><br/>
-<p style="font-size:30px">Suggested friends:
+<p style="font-size:30px">Suggested friends:<br />
 
 
 <?php
@@ -69,7 +80,7 @@ if($result=mysqli_query($conn, $q))
 }
 ?>
 </p>
-
+</center>
 </body>
 
 

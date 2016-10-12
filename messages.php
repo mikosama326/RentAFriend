@@ -2,14 +2,27 @@
 
 <head>
 
-
+<link rel="stylesheet" href="index.css" />
 </head>
 
 <body>
-<p style="font-size:50px; ">----------------- Rent-a-friend!!!--------------------------</p>
-<p style="font-size:20px; text-indent:60%"> <a href="home.php">Home</a> | <a href="logout.php">Sign out</a> | <a href="messages.php">Messages</a> |</p>
-<a href="sendmessage.php">Send a Message!</a> <a href="find.php">Find friends!</a>
-<br/><br/><br/>
+	<center>
+
+		<div class="head">
+			<table>
+				<tr>
+					<td>
+			<img src="logo.png" width="192px" height="144px"/>
+		</td><td>
+			<h1>Rent A Friend</h1>
+		<h2>Coming soon to a browser near you!</h2>
+		</td></tr></table>
+		</div>
+
+		<div class="nav">
+<p style="font-size:20px;text-align:center;"> <a href="homepage.php">Home</a> | <a href="logout.php">Sign out</a> | <a href="messages.php">Messages</a> |
+<a href="sendmessage.php">Send a Message!</a> <a href="find.php">Find friends!</a></p>
+</div>
 <p style="font-size:30px">Messages:
 
 

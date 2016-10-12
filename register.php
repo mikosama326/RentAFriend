@@ -1,10 +1,7 @@
 <html>
 	<head>
 		<title>Rent A Friend -  the lonliness buster! Register now!</title>
-		<style>
-		body {background-color: #1299FF;}
-		h1 {border: 3px dashed #000000;display:inline;}
-		</style>
+		<link rel="stylesheet" href="index.css" />
 
     <script type="text/javascript">
 
@@ -70,9 +67,18 @@ else {
 ?>
 	</head>
 	<body>
-	<h1>Rent A Friend</h1>
-	<h2>Coming soon to a browser near you!</h2>
-
+		<center>
+		<div class="head">
+			<table>
+				<tr>
+					<td>
+			<img src="logo.png" width="192px" height="144px"/>
+		</td><td>
+			<h1>Rent A Friend</h1>
+		<h2>Coming soon to a browser near you!</h2>
+	</td></tr></table>
+		</div>
+		<div class="main">
 <h3>Sign in!</h3>
 <form onsubmit="register.php" method="post">
 <table>
@@ -95,6 +101,7 @@ else {
 	echo $msg;
 ?>
 
-
+</div>
+</center>
 	</body>
 </html>
