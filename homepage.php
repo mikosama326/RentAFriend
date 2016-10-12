@@ -24,8 +24,8 @@ echo "Session variables are set.";
 
 
 <p style="font-size:50px; ">----------------- Rent-a-friend!!!--------------------------</p>
-<p style="font-size:20px; text-indent:80%"> <a href="home.php">Home</a> | <a href="logout.php">Sign out</a> | <a href="messages.php">Messages</a> |</p>
-<a href="find.php">Find friends!</a>
+<p style="font-size:20px; text-indent:10%"> <a href="home.php">Home</a> | <a href="logout.php">Sign out</a> | <a href="messages.php">Messages</a> |</p>
+<a href="find.php">Find friends!</a> <a href="addint.php"> Add an Interest</a> 
 <br/><br/><br/>
 
 <p style="font-size:30px">User:

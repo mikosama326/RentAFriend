@@ -7,10 +7,9 @@
 
 <body>
 <p style="font-size:50px; ">----------------- Rent-a-friend!!!--------------------------</p>
-<p style="font-size:20px; text-indent:70%"> Home | Sign out | Messages | <a href="sendmessage.php">Send message</a></p>
-
+<p style="font-size:20px; text-indent:60%"> <a href="home.php">Home</a> | <a href="logout.php">Sign out</a> | <a href="messages.php">Messages</a> |</p>
+<a href="sendmessage.php">Send a Message!</a> <a href="find.php">Find friends!</a>
 <br/><br/><br/>
-
 <p style="font-size:30px">Messages:
 
 

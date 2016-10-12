@@ -19,7 +19,7 @@ include(config.php);
 // Set session variables
 include('config.php');
 session_start();
-echo "Session variables are set.";
+//echo "Session variables are set.";
 ?>
 
 
@@ -27,7 +27,8 @@ echo "Session variables are set.";
 <p style="font-size:20px; text-indent:60%"> <a href="home.php">Home</a> | <a href="logout.php">Sign out</a> | <a href="messages.php">Messages</a> |</p>
 <a href="find.php">Find friends!</a>
 <br/><br/><br/>
-<p style="font-size:30px">Suggested friends:
+
+<p style="font-size:30px">User:
 
 
 <?php
@@ -35,18 +36,18 @@ echo "Session variables are set.";
 $conn=mysqli_connect($server, $username,$password, $dbname);
 
 $userid=$_SESSION["userid"];
-//$q="select * from $interests where userid='$userid'; ";
-$q = "select distinct i1.userid from Interests i1,Interests i2 where i1.interest=i2.interest AND i1.userid<>i2.userid AND i2.userid='$userid';
-";
-if($result=mysqli_query($conn, $q))
+$newint=$_POST['newint'];
+$q="select * from $interests where userid='$userid' AND interest='$newint'; ";
+$result=mysqli_query($conn, $q);
+if(mysqli_num_rows($result)==0)
 {
-	//fetch one row
-	while($row=mysqli_fetch_row($result))
-	{
-		printf("<a href='profile.php?id=%s'>%s</a> <br />",$row[0],$row[0]);
+$q="insert into $interests values('$userid','$newint'); ";
+$result=mysqli_query($conn, $q);
 
-	}
-	//mysqli_free_result($result);
+}
+else {
+
+  echo "IDIOT!";
 }
 
 //mysqli_close($conn);
@@ -69,6 +70,10 @@ if($result=mysqli_query($conn, $q))
 }
 ?>
 </p>
+<form onsubmit="addint.php" method="POST">
+  <input type="text" name="newint"/>
+  <input type="submit" value="Add Interest!"/>
+</form>
 
 </body>
 

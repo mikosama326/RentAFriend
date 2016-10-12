@@ -7,10 +7,9 @@
 
 <body>
 <p style="font-size:50px; ">----------------- Rent-a-friend!!!--------------------------</p>
-<p style="font-size:20px; text-indent:80%"> Home | Sign out | Messages |</p>
-
+<p style="font-size:20px; text-indent:60%"> <a href="home.php">Home</a> | <a href="logout.php">Sign out</a> | <a href="messages.php">Messages</a> |</p>
+<a href="find.php">Find friends!</a>
 <br/><br/><br/>
-
 <p style="font-size:30px">Send a message:
 
 
@@ -52,7 +51,9 @@ if(isset($_POST['to']))
 
 <form onsubmit="sendmessage.php" method="POST" id="sendmsg">
   <input type="submit" value="Send away!" /> <br />
-  To: <input type="text" name="to" /> <br />
+  To: <?php
+  $to = $_GET['to'];
+  echo "<input type='text' name='to' value='$to'/>" ?> <br />
 </form>
 Message:<br />
 <textarea form="sendmsg" name="msg" rows="10" cols="80">Enter message here...</textarea>
