@@ -1,50 +1,34 @@
-
-<?php
-session_start();
-include(config.php);
-?>
-
 <html>
 
 <head>
-<link rel="stylesheet" href="index.css" />
-
+  <link rel="stylesheet" href="index.css" />
+  <?php
+  include('config.php');
+  session_start();
+  ?>
 </head>
 
 <body>
 
 <center>
 
-  <div class="head">
-  	<table>
-  		<tr>
-  			<td>
-  	<img src="logo.png" width="192px" height="144px"/>
-  </td><td>
-  	<h1>Rent A Friend</h1>
-  <h2>Coming soon to a browser near you!</h2>
-  </td></tr></table>
-  </div>
+  <table class="maintable">
+    <tr>
+      <td class="head"></td>
+    </tr>
+    <tr>
+      <td class="main">
 
+        <div class="nav">
+
+        <a href="homepage.php">Home</a> | <a href="logout.php">Sign out</a> | <a href="messages.php">Messages</a> |
+        <a href="sendmessage.php">Send a Message</a> | <a href="find.php">Find friends</a> | <a href="addint.php"> Add an Interest</a>
+
+        </div>
+
+<h3>Suggested friends:</h3>
 <?php
-// Set session variables
-include('config.php');
-session_start();
-echo "Session variables are set.";
-?>
-
-<div class="nav">
-<p style="font-size:20px;text-align:center;"> <a href="home.php">Home</a> | <a href="logout.php">Sign out</a> | <a href="messages.php">Messages</a> |
-<a href="find.php">Find friends!</a></p>
-</div>
-
-<p style="font-size:30px">Suggested friends:<br />
-
-
-<?php
-
 $conn=mysqli_connect($server, $username,$password, $dbname);
-
 $userid=$_SESSION["userid"];
 //$q="select * from $interests where userid='$userid'; ";
 $q = "select distinct i1.userid from Interests i1,Interests i2 where i1.interest=i2.interest AND i1.userid<>i2.userid AND i2.userid='$userid';
@@ -54,22 +38,13 @@ if($result=mysqli_query($conn, $q))
 	//fetch one row
 	while($row=mysqli_fetch_row($result))
 	{
-		printf("<a href='profile.php?id=%s'>%s</a> <br />",$row[0],$row[0]);
-
+    //TODO: also print which interests are in common
+    printf("<a href='profile.php?id=%s'>%s</a> <br />",$row[0],$row[0]);
 	}
-	//mysqli_free_result($result);
 }
-
-//mysqli_close($conn);
-
-
 ?>
-
-</p>
-
-<p style="font-size:30px">
+<h3>Interests:</h3>
 <?php
-printf("Interests:<br/>");
 $q="select * from $interests where userid='$userid'; ";
 if($result=mysqli_query($conn, $q))
 {
@@ -79,7 +54,17 @@ if($result=mysqli_query($conn, $q))
 	}
 }
 ?>
-</p>
+
+      </td>
+    </tr>
+    <tr>
+      <td class="foot">
+        This site is just a prototype. Don't take us too seriously.
+      </td>
+    </tr>
+  </table>
+
+
 </center>
 </body>
 

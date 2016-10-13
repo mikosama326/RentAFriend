@@ -1,87 +1,75 @@
-
-<?php
-session_start();
-#error_reporting(E_ALL);
-#display_errors("stdout");
-include(config.php);
-?>
-
 <html>
 
 <head>
-<link rel="stylesheet" href="index.css" />
-
+	<link rel="stylesheet" href="index.css" />
+	<?php
+	// Set session variables
+	include('config.php');
+	session_start();
+	echo "Session variables are set.";
+	?>
 </head>
 
 <body>
 <center>
-<?php
-// Set session variables
-include('config.php');
-session_start();
-echo "Session variables are set.";
-?>
 
-<div class="head">
-	<table>
+	<table class="maintable">
 		<tr>
-			<td>
-	<img src="logo.png" width="192px" height="144px"/>
-</td><td>
-	<h1>Rent A Friend</h1>
-<h2>Coming soon to a browser near you!</h2>
-</td></tr></table>
-</div>
+			<td class="head"></td>
+		</tr>
+		<tr>
+			<td class="main">
 
 <div class="nav">
-<p style="font-size:20px;text-align:center;"> <a href="homepage.php">Home</a> | <a href="logout.php">Sign out</a> | <a href="messages.php">Messages</a> |
-<a href="find.php">Find friends!</a> <a href="addint.php"> Add an Interest</a></p>
-<br/><br/><br/>
+
+<a href="homepage.php">Home</a> | <a href="logout.php">Sign out</a> | <a href="messages.php">Messages</a> |
+<a href="find.php">Find friends </a> | <a href="addint.php"> Add an Interest</a>
+
 </div>
-<div class="main">
-<p style="font-size:30px">User:
 
+	<h1> Welcome! </h1>
 
-<?php
-
-$conn=mysqli_connect($server, $username,$password, $dbname);
-
-$userid=$_SESSION["userid"];
-$q="select * from $userdetails where userid='$userid'; ";
-if($result=mysqli_query($conn, $q))
-{
-	//fetch one row
-	while($row=mysqli_fetch_row($result))
+<h3>User details</h3>
+<p>User:
+	<?php
+	$conn=mysqli_connect($server, $username,$password, $dbname);
+	$userid=$_SESSION["userid"];
+	$q="select * from $userdetails where userid='$userid'; ";
+	if($result=mysqli_query($conn, $q))
 	{
-		printf("%s %s <br/>", $row[1], $row[2]);
-		printf("Age: %s<br/>", $row[3]);
-		printf("City: %s", $row[4]);
+		while($row=mysqli_fetch_row($result))
+		{
+			printf("%s %s <br/>", $row[1], $row[2]);
+			printf("Age: %s<br/>", $row[3]);
+			printf("City: %s", $row[4]);
 
+		}
 	}
-	//mysqli_free_result($result);
-}
-
-//mysqli_close($conn);
-
-
-?>
-
+	?>
 </p>
 
-<p style="font-size:30px">
-<?php
-printf("Interests:<br/>");
-$q="select * from $interests where userid='$userid'; ";
-if($result=mysqli_query($conn, $q))
-{
-	while($row=mysqli_fetch_row($result))
+<h3>Interests</h3>
+<p>
+	<?php
+	$q="select * from $interests where userid='$userid'; ";
+	if($result=mysqli_query($conn, $q))
 	{
-		printf("\t%s <br/>", $row[1]);
+		while($row=mysqli_fetch_row($result))
+		{
+			printf("%s <br/>", $row[1]);
+		}
 	}
-}
-?>
+	?>
 </p>
-</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="foot">
+				This site is just a prototype. Don't take us too seriously.
+			</td>
+		</tr>
+	</table>
+
 </center>
 </body>
 

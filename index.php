@@ -5,22 +5,38 @@
 	</head>
 	<body>
 		<center>
-	<div class="head">
-		<table>
-			<tr>
-				<td>
-		<img src="logo.png" width="192px" height="144px"/>
-	</td><td>
-		<h1>Rent A Friend</h1>
-	<h2>Coming soon to a browser near you!</h2>
-</td></tr></table>
-	</div>
-	<div class="main">
-	Returning User? <br />
-	<a href="register.php">Sign In!</a><br />
-	First time Friend? <br />
-	<a href="reg4real.php">Sign Up! </a>
-</div>
+
+<table class="maintable">
+	<tr>
+		<td class="head"></td>
+	</tr>
+	<tr>
+		<td class="main">
+
+<h1> Welcome! </h1>
+
+<table class="content">
+	<tr>
+		<td>
+			Returning User? <br />
+			<a href="login.php">Sign In!</a><br />
+		</td>
+		<td>
+			First time friend? <br />
+			<a href="reg4real.php">Sign Up! </a>
+		</td>
+	</tr>
+</table>
+
+		</td>
+	</tr>
+	<tr>
+		<td class="foot">
+			This site is just a prototype. Don't take us too seriously.
+		</td>
+	</tr>
+</table>
+
 </center>
 	</body>
 </html>

@@ -1,4 +1,5 @@
 <html>
+<!--TODO: make it print something when the content is inserted-->
 <head>
   <?php
   include('config.php');
@@ -22,12 +23,11 @@
           $area = $_POST['area'];
           $q = "insert into $userdetails values('$userid','$fname','$lname','$age','$city','$area');";
           mysqli_query($conn, $q);
+          $msg = "You've successfully registered!";
        }
        else {
          $msg = "Userid already exists.";
-
-    echo"$msg";
-     }
+       }
     }
   }
   ?>
@@ -35,67 +35,85 @@
 </head>
 <body>
   <center>
-  <div class="head">
-		<table>
-			<tr>
-				<td>
-		<img src="logo.png" width="192px" height="144px"/>
-	</td><td>
-		<h1>Rent A Friend</h1>
-	<h2>Coming soon to a browser near you!</h2>
-</td></tr></table>
-	</div>
-  <div class="main">
-<h3>Sign up!</h3>
-	<form onsubmit="reg4real.php" method="post">
-<table>
+
+    <table class="maintable">
+    	<tr>
+    		<td class="head"></td>
+    	</tr>
+    	<tr>
+    		<td class="main">
+          <center>
+    <h1> Become a friend </h1>
+
+    <h3>Sign up!</h3>
+
+<?php
+echo $msg;
+?>
+
+    	<form onsubmit="reg4real.php" method="post">
+    <table>
+        <tr>
+          <td>Userid:</td>
+            <td><input type="text" name="userid" required/> </td>
+          </tr>
+        <tr>
+          <td>Password: </td>
+          <td><input type="password" name="password" required /> </td>
+        </tr>
     <tr>
-      <td>Userid:</td>
-        <td><input type="text" name="userid" required/> </td>
+        <td>First Name:</td>
+        <td> <input type="text" name="fname" id="fname" required/> </td>
+      </tr>
+
+    <tr>
+        <td>Last Name</td>
+        <td><input type="text" name="lname" /> </td>
       </tr>
     <tr>
-      <td>Password: </td>
-      <td><input type="password" name="password" required /> </td>
-    </tr>
-<tr>
-    <td>First Name:</td>
-    <td> <input type="text" name="fname" id="fname" required/> </td>
-  </tr>
-
-<tr>
-    <td>Last Name</td>
-    <td><input type="text" name="lname" /> </td>
-  </tr>
-<tr>
-    <td>Age: </td>
-    <td>  <input type="text" name="age" id="age"/> </td>
-</tr>
-
-<tr>
-    <td>Email id:</td>
-    <td> <input type="text" name="emailid" id="emailid" required/> </td>
-  </tr>
-
-  <tr>
-      <td>Phone:</td>
-      <td> <input type="text" name="phone" id="phone" /> </td>
+        <td>Age: </td>
+        <td>  <input type="text" name="age" id="age"/> </td>
     </tr>
 
-<tr>
-    <td>City: </td>
-    <td><input type="text" name="city" required /> </td>
-</tr>
+    <tr>
+        <td>Email id:</td>
+        <td> <input type="text" name="emailid" id="emailid" required/> </td>
+      </tr>
 
-<tr>
-    <td>Area: </td>
-    <td><input type="text" name="area" /> </td>
-</tr>
-<tr>
-    <td><input type="submit" value="Submit!" /> </td>
-</tr>
-</table>
-</form>
-</div>
-</center>
+      <tr>
+          <td>Phone:</td>
+          <td> <input type="text" name="phone" id="phone" /> </td>
+        </tr>
+
+    <tr>
+        <td>City: </td>
+        <td><input type="text" name="city" required /> </td>
+    </tr>
+
+    <tr>
+        <td>Area: </td>
+        <td><input type="text" name="area" /> </td>
+    </tr>
+    <tr>
+        <td><input type="submit" value="Submit!" /> </td>
+    </tr>
+    </table>
+    </form>
+
+
+          </center>
+
+<a href="index.php"> << Back </a>
+
+    		</td>
+    	</tr>
+    	<tr>
+    		<td class="foot">
+    			This site is just a prototype. Don't take us too seriously.
+    		</td>
+    	</tr>
+    </table>
+
+  </center>
 </body>
 </html>
