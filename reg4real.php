@@ -1,6 +1,9 @@
 <html>
 <!--TODO: make it print something when the content is inserted-->
 <head>
+
+<script type="text/javascript" src="verification.js"></script>
+
   <?php
   include('config.php');
   $msg = "";
@@ -51,7 +54,7 @@
 echo $msg;
 ?>
 
-    	<form onsubmit="reg4real.php" method="post">
+    	<form action="reg4real.php" onsubmit="return verify();" method="post" name="signup">
     <table>
         <tr>
           <td>Userid:</td>
