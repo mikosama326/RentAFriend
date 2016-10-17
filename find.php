@@ -27,6 +27,11 @@
         </div>
 
 <h3>Suggested friends:</h3>
+<table class="messages">
+  <tr>
+    <th>Username</th>
+    <th>Common interests</th>
+  </tr>
 <?php
 $conn=mysqli_connect($server, $username,$password, $dbname);
 $userid=$_SESSION["userid"];
@@ -39,11 +44,21 @@ if($result=mysqli_query($conn, $q))
 	while($row=mysqli_fetch_row($result))
 	{
     //TODO: also print which interests are in common
-    printf("<a href='profile.php?id=%s'>%s</a> <br />",$row[0],$row[0]);
+    printf("<tr><td>");
+    printf("<a href='profile.php?id=%s'>%s</a>",$row[0],$row[0]);
+    printf("</td><td>");
+    $intq = "select i1.interest from Interests i1,Interests i2 where i1.userid='$userid' AND i2.userid='$row[0]' AND i1.interest=i2.interest;";
+    if($yay=mysqli_query($conn, $intq))
+    {
+      while($wokay=mysqli_fetch_row($yay))
+        printf("%s  ",$wokay[0]);
+    }
+    printf("</td></tr>");
 	}
 }
 ?>
-<h3>Interests:</h3>
+</table>
+<h3>Your Interests:</h3>
 <?php
 $q="select * from $interests where userid='$userid'; ";
 if($result=mysqli_query($conn, $q))
