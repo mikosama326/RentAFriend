@@ -12,7 +12,7 @@ if(email_valid!=0)
   return false;
 }
 
-var email = document.forms["signup"]["phone"].value;
+var phone = document.forms["signup"]["phone"].value;
 if(phone.length>0){
 var phone_valid=phone.search(/[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/);
 if(phone_valid!=0)
